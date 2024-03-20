@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Brro Production Files
  * Description: Brro website production style, script and functions
- * Version: 1
+ * Version: 1.0.0
  * Author: Ronald Postma 
  * Author URI: https://brro.nl/
  * 
