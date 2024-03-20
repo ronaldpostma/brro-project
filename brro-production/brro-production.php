@@ -16,7 +16,7 @@ require_once plugin_dir_path(__FILE__) . '/brro-production-functions.php';
 //
 add_action( 'wp_enqueue_scripts', 'brro_enqueue_production_script' );
 function brro_enqueue_production_script() {
-    wp_enqueue_script( 'brro-frontend-inspector-script', plugins_url( 'brro-production-script.js', __FILE__ ), [ 'jquery' ], '1.0.0', true );
+    wp_enqueue_script( 'brro-production-script', plugins_url( 'brro-production-script.js', __FILE__ ), [ 'jquery' ], '1.0.0', true );
 }
 //
 // Load CSS
