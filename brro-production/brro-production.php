@@ -23,6 +23,9 @@ function brro_enqueue_production_script() {
 //
 add_action( 'wp_enqueue_scripts', 'brro_enqueue_production_css' );
 function brro_enqueue_production_css() {
+    $developer_mode = get_option('brro_developer_mode', 0);
     $version = get_option('brro_frontend_var_css_version', '1.0.0'); // Renews each time the file is regenerated. Defaults to '1.0.0' if nothing is set
-    wp_enqueue_style( 'brro-production-vars', plugins_url( '/css/brro-vars.css', __FILE__ ), [], $version);
+    if ($developer_mode == 0) {
+        wp_enqueue_style( 'brro-production-vars', plugins_url( '/css/brro-vars.css', __FILE__ ), [], $version);
+    }
 }
