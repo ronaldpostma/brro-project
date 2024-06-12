@@ -38,7 +38,7 @@
 Base templates with custom styles, scripts and functions for a site developed by Brro.
 
 # 3. Core functions with brro-core
-Works alongside the code functions in <a href="https://github.com/ronaldpostma/brro-core" target="_blank">brro-core</a>.
+Works alongside the global functions in <a href="https://github.com/ronaldpostma/brro-core" target="_blank">brro-core</a>.
 
 # 4. Development next steps
 1. In `js/brro-project-global-script.js` > create the back to top button itself as well, don't rely on an Elementor widget
