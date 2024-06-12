@@ -1,0 +1,652 @@
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* ROOT */
+:root,
+.elementor-kit-12 {
+    --white: var(--e-global-color-primary);
+    --turqoise: var(--e-global-color-secondary);
+    --black: var(--e-global-color-text);
+    --brownred: var(--e-global-color-accent);
+	--brownred2:var(--e-global-color-3fccb9f);
+	--yellow:var(--e-global-color-d33b0d4);
+	--purple:var(--e-global-color-a68e00f);
+	--darkpurple:var(--e-global-color-712d213);
+	--peat:var(--e-global-color-cc214ff);
+	--moss:var(--e-global-color-c154ed3);
+	--mosstrans:var(--e-global-color-3209304);
+	--offwhite:var(--e-global-color-d413470);
+    --sand: var(--e-global-color-e1decee);
+	--greytrans1:var(--e-global-color-399cf6a);
+	--greytrans2:var(--e-global-color-faba74a);
+	--greytrans3:var(--e-global-color-a1ad4d6);
+	--grey2:var(--e-global-color-595747b);
+	--grey3:var(--e-global-color-6c7f14e);
+	--grey4:var(--e-global-color-9b3d62f);
+	--cubix: cubic-bezier(.8,0,.4,1);
+    --cubixslow: cubic-bezier(.55,0,0,1);
+}
+@media (max-width:767px) {
+	.e-con {
+		--def:clamp(300px, calc(24.57vw + 231.55px), 420px);/*320px @ 360 : 420px @ 767*/
+		--small:clamp(290px, calc(19.66vw + 209.24px), 360px); /*280px @ 360 : 360px @ 767*/
+		--wide:clamp(300px, calc(63.88vw + 90.02px), 580px); /*320px @ 360 : 580px @ 767*/
+	}
+}
+/* WP ADMIN BAR */
+/* Hide all */
+body:not(.webadmin) #wpadminbar li {
+    display: none !important;
+}
+/* Admin top menu */
+body:not(.webadmin) #wpadminbar li#wp-admin-bar-site-name,
+body:not(.webadmin) #wpadminbar li#wp-admin-bar-my-account,
+body:not(.webadmin) #wpadminbar li#wp-admin-bar-logout {
+    display: inherit !important;
+}
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* HTML,BODY */
+body,
+html {
+    overflow-x: hidden !important;
+}
+body {position:relative;}
+*:focus,
+*:focus-visible,
+* {
+    outline: none !important;
+}
+
+/* clears the ‘X’ from search input Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    filter: grayscale(100%) invert(1) brightness(200%);
+}
+body::before {
+  	content:"";position:fixed;top:0;left:0;width:100%;height:100%;z-index: -1;
+  	background: url('/wp-content/uploads/2024/03/twow_grain-dt.png') repeat-y center center;
+  	background-size: 100% auto;
+  	mix-blend-mode: multiply;
+	opacity:.8;
+}
+/* Hide content if it has no data, from ACF shortcode function twow_ */
+[twow_data="no-content"] {
+	display:none!important;
+}
+/* SCROLLBARS */
+/* This styles the scrollbar track (part the thumb slides within) */
+#twow_checkout_items-container::-webkit-scrollbar-track {
+    background-color: var(--peat)!important; /* Light track */
+}
+/* This styles the scrollbar thumb (the part that you drag) */
+#twow_checkout_items-container::-webkit-scrollbar-thumb {
+    background-color: var(--mosstrans)!important; /* Darker thumb */
+    border-radius: 10px!important; /* Rounded corners on the thumb */
+    border: 2px solid var(--peat)!important; /* Creates a border around the thumb with the same color as the track */
+}
+/* This styles the scrollbar itself (including thumb and track) */
+#twow_checkout_items-container::-webkit-scrollbar {
+    width: 12px!important; /* Width of the scrollbar */
+    height: 20px!important; /* Height of the scrollbar for horizontal scroll */
+}
+/* Firefox requires a different approach */
+#twow_checkout_items-container {
+    scrollbar-width: thin!important; /* 'auto' or 'thin' */
+    scrollbar-color: var(--mosstrans) var(--peat)!important; /* thumb and track color */
+}
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* ELEMENTOR EDITOR */
+/* Captcha inline */
+.elementor-field-type-recaptcha_v3.recaptcha_v3-inline {
+    height: 5px;
+    margin-bottom: 0px !important;
+    opacity: 0;
+    visibility: hidden;
+}
+/* HTML show if has script */
+.elementor-editor-active .elementor-widget-html:not(.hidejs) script {
+    display: block;
+    max-height: 30px;
+    border: 4px solid red;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 12px;
+}
+/* Highlight spacer */
+.elementor-editor-active .elementor-spacer {
+    background: grey;
+    opacity: 0.2;
+}
+/* Highlight empty widget */
+.elementor-editor-active .elementor-element.elementor-widget-empty .elementor-widget-empty-icon {
+    border: 4px solid red;
+}
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* HEADER */
+/* Headerup */
+header {
+    -webkit-transition: transform 400ms var(--cubix)!important;
+    transition: transform 400ms var(--cubix)!important;
+}
+header.brro-headerup {
+    transform: translateY(-200px);
+    /*adjust this value to the height of your header*/
+}
+header.brro-sticky-effects {
+	background:var(--turqoise)!important;
+	-webkit-transition: transform 400ms var(--cubix), background 400ms ease 100ms!important;
+    transition: transform 400ms var(--cubix), box-shadow 400ms var(--cubix), background 400ms ease 100ms!important;
+	box-shadow: 0px 0px 60px #000000AF;
+}
+.woocommerce header.brro-sticky-effects {
+	background:var(--brownred)!important;
+}
+/*
+ * 
+ * Logo */
+#twow_bd_logo .logo-fill{fill:#FFFFFF;}
+.twowlogo-container .elementor-widget-container {line-height: 1px;}
+/* Home with By Dirven, not sticky */
+body.home header:not(.brro-sticky-effects) #twow_bd_logo {
+	transform:translateY(clamp(9px, 0.76vw, 12px)) /*11px @ 1440*/;
+	overflow:visible;
+	opacity:0;
+} /* Logo on Desktop */
+@media (min-width:1180px) {
+	#twow_bd_logo {
+		width: clamp(270px, 19.72vw, 316px) /*284px @ 1440*/;
+	}
+	body.home header:not(.brro-sticky-effects) #twow_bd_logo {
+		width: clamp(509px, 45.42vw, 727px) /*654px @ 1440*/;
+	}
+} /* Logo on Tablet */
+@media (min-width:768px) and (max-width:1179px) {
+	#twow_bd_logo {
+		width: 270px;
+	}
+	body.home header:not(.brro-sticky-effects) #twow_bd_logo {
+		width: clamp(300px, calc(50.85vw - 90.54px), 509px) /*300px @ 768 : 509px @ 1179*/;
+	}
+} /* Logo on Mobile */
+@media (max-width:767px) {
+	#twow_bd_logo {
+		width: clamp(248px, calc(11.55vw + 211.43px), 300px) /*253px @ 360 : 300px @ 767*/;
+	}
+}
+.home header:not(.brro-sticky-effects) #twow_arrow, .home header:not(.brro-sticky-effects) #bydirven {display:initial!important;}
+#twow_arrow, #bydirven {display:none;}
+
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* FOOTER */
+/* back to top btn*/
+#to-top.not-to-top {
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+}
+#to-top {
+    transition: opacity 600ms ease;
+}
+
+
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* SECTIONS/CONTAINERS */
+/*
+ * 
+/* Title + featured image hero container */
+.hero-title-img:after {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--turqoise);
+    z-index: -1;
+	/* on each page, adjust the height if needed, this is the default: */
+	--bg-height-desktop:clamp(112px, 9.51vw, 152px) /*137px @ 1440*/;
+	--bg-height-tablet:clamp(80px, calc(7.79vw + 20.20px), 112px) /*80px @ 768 : 112px @ 1179*/;
+	--bg-height-mobile:100px;
+} 
+/* apply heights to different sections */
+@media (min-width:1180px) {
+    .hero-title-img:after { height:var(--bg-height-desktop); }
+	.arrow-terug-section { margin-bottom:calc(0px - clamp(47px, 3.96vw, 63px) /*57px @ 1440*/)!important; }
+}
+@media (min-width:768px) and (max-width:1179px) {
+    .hero-title-img:after { height:var(--bg-height-tablet); }
+	.arrow-terug-section { margin-bottom:-46px!important; }
+}
+@media (max-width:767px) {
+    .hero-title-img:after { height:var(--bg-height-mobile); }
+	.arrow-terug-section { margin-bottom:-38px!important; }
+}
+/* drop shadow on featured image */
+@media (min-width:768px) {
+	.nav-shadow:after,#headslider .swiper-wrapper:after {
+    	content:"";
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height:20%;
+    	background-color: transparent;
+    	background-image: linear-gradient(180deg, var(--greytrans3) 0%, transparent 100%);
+	}	
+}
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* Loops */
+/*
+ * Text underline */
+.loop-item.underline:hover h3,
+.loop-item.underline:hover h2,
+.loop-item.underline:hover p,
+.productloop.container:hover h4,
+.uitgelicht-inspiratie:hover h2,
+.uitgelicht-evenement:hover h2,
+.uitgelicht-inspiratie:hover .date span,
+#notice [class*="woocommerce"] a:hover,
+.content-text a:hover,
+.underline-normal a:hover{
+	text-decoration:underline!important;
+	text-decoration-thickness:1.5px!important;
+}
+.loop-item.underline:hover p,
+.productloop.container:hover h4,
+.uitgelicht-inspiratie:hover .date span,
+#notice [class*="woocommerce"] a:hover,
+.content-text a:hover,
+.underline-normal a:hover{	
+	text-underline-offset:2px;
+}
+.loop-item.underline:hover h3,
+.loop-item.underline:hover h2,
+.uitgelicht-inspiratie:hover h2,
+.uitgelicht-evenement:hover h2{
+	text-underline-offset:3px;
+}
+/* IMAGES HOVER EFFECT */
+.loop-item.zoom .elementor-widget-image .elementor-widget-container,
+.loop-item.zoom .elementor-widget-shortcode .elementor-widget-container,
+.productloop.image .elementor-widget-container,
+.uitgelicht-inspiratie.image .elementor-widget-container,
+.uitgelicht-evenement.image .elementor-widget-container{
+	overflow:hidden;
+}
+.loop-item.zoom img,
+.productloop.image img,
+.uitgelicht-inspiratie.image img,
+.uitgelicht-evenement.image img{
+	transition:transform 600ms ease-in-out;
+}
+.loop-item.zoom:hover img,
+.productloop.container:hover .productloop.image img,
+.uitgelicht-inspiratie:hover img,
+.uitgelicht-evenement:hover img {
+	transform:scale(1.1);
+}
+/* Product price */
+.productloop.price p.price {
+	margin-bottom:0px!important;
+}
+.productloop.price {
+	margin-top:auto;
+}
+.productloop.price del {
+	color: var(--black)!important;
+    font-size: var(--e-global-typography-57705fe-font-size)!important;
+    font-weight: var(--e-global-typography-57705fe-font-weight)!important;
+    line-height: var(--e-global-typography-57705fe-line-height)!important;
+	opacity:1!important;
+}
+.e-loop-item:not(.sale) .sale-discount-wrapper {display:none;}
+.sale-discount-wrapper .elementor-widget-container {align-content:center;}
+.sale-discount {
+	color: var(--purple);
+    font-family: var(--e-global-typography-2aac1b3-font-family), Sans-serif;
+    font-size: var(--e-global-typography-2aac1b3-font-size);
+    font-weight: var(--e-global-typography-2aac1b3-font-weight);
+    line-height: var(--e-global-typography-2aac1b3-line-height);
+	text-align:center;
+	opacity:0;
+	transition:opacity 200ms ease;
+}
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* Swiper */
+.swiper-wrapper {
+    transition-timing-function: var(--cubix)!important;
+}
+
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* Arrow buttons */
+.arrow.twowbutton,
+.default.twowbutton a {
+    border-width:1.5px;
+    border-radius: 100px;
+}
+.arrow.twowbutton {
+	--arrowhoveroffsetX:clamp(10px, 0.83vw, 13px) /*12px @ 1440*/!important;
+	--arrowhoveroffsetY:0px;
+}
+.arrow.twowbutton {
+	transition:transform 400ms ease;
+}
+.arrow.twowbutton:not(.terug):hover {
+	transform:translate(var(--arrowhoveroffsetX), var(--arrowhoveroffsetY));
+}
+.arrow.twowbutton.vertical:not(.terug):hover {
+	transform:translate(var(--arrowhoveroffsetY), var(--arrowhoveroffset));
+}
+/*padding*/
+@media (min-width:1180px) {
+	.arrow.twowbutton:not(.custom),
+	.default.twowbutton:not(.custom) a {
+    	padding-top:clamp(10px, 0.83vw, 13px) /*12px @ 1440*/!important;
+		padding-bottom:clamp(11px, 0.90vw, 14px) /*13px @ 1440*/!important;
+	}
+}
+@media (max-width:1179px) {
+	.arrow.twowbutton:not(.custom),
+	.default.twowbutton:not(.custom) a {
+    	padding-top:7px!important;
+		padding-bottom:9px!important;
+	}
+}
+@media (max-width:767px) {
+	.default.twowbutton:not(.custom) a {
+    	padding-top:6px!important;
+		padding-bottom:8px!important;
+	}
+	.arrow.twowbutton:not(.custom){
+    	padding-top:3px!important;
+		padding-bottom:5px!important;
+	}
+}
+.arrow.twowbutton:not(.custom),
+.default.twowbutton:not(.custom) a {
+	padding-left:clamp(24px, 2.01vw, 32px) /*29px @ 1440*/!important;
+}
+.default.twowbutton:not(.custom) a {
+	padding-right:clamp(24px, 2.01vw, 32px) /*29px @ 1440*/!important;
+}
+.arrow.twowbutton.arrowleft {
+	padding-left:clamp(16px, 1.39vw, 22px) /*20px @ 1440*/!important;
+}
+.arrow.twowbutton:not(.custom) {
+	padding-right:clamp(16px, 1.39vw, 22px) /*20px @ 1440*/!important;
+}
+
+.arrow.twowbutton.xl,
+.default.twowbutton.xl a {
+	padding-top: clamp(15px, 1.25vw, 20px) /*18px @ 1440*/!important;
+	padding-right: clamp(43px, 3.61vw, 58px) /*52px @ 1440*/!important;
+	padding-bottom: clamp(14px, 1.18vw, 19px) /*17px @ 1440*/!important;
+	padding-left: clamp(43px, 3.61vw, 58px) /*52px @ 1440*/!important;
+}
+.arrow.twowbutton.xl {
+	padding-right: clamp(26px, 2.22vw, 36px) /*32px @ 1440*/!important;
+}
+.arrow.twowbutton .twow-arrow-inner.vertical svg.horizontal,
+.arrow.twowbutton .twow-arrow-inner.horizontal svg.vertical {
+  	display:none;
+}
+.arrow.twowbutton .twow-arrow-inner {
+  	line-height:0;
+}
+.arrow.twowbutton .twow-arrow-inner.horizontal {
+	transition:width 400ms ease;
+}
+.arrow.twowbutton .twow-arrow-inner.vertical {
+	transition:height 400ms ease;
+}
+.arrow.twowbutton .twow-arrow-inner rect {
+    transition:all 400ms ease;
+}
+@media (min-width:1180px) {
+	.arrow.twowbutton:hover .twow-arrow-inner.horizontal rect {
+    	width:97%;
+    	x:0;
+	}
+	.arrow.twowbutton:hover .twow-arrow-inner.vertical rect {
+    	height:97%;
+    	y:0;
+	}
+	.arrow.twowbutton:hover .twow-arrow-inner.horizontal svg {
+  		transform: translateX(0);
+	}
+	.arrow.twowbutton:hover .twow-arrow-inner.vertical svg {
+  		transform: translateY(0);
+	}
+}
+	.arrow.twowbutton .twow-arrow-inner svg {
+  	transition:transform 400ms ease;
+}
+.arrow.twowbutton .twow-arrow-inner.horizontal svg {
+  	transform: translateX(-57.5%);
+}
+.arrow.twowbutton .twow-arrow-inner.vertical svg {
+  	transform: translateY(-57.5%);
+}
+
+
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* WOOCOMMERCE NOTICES */
+#notice .e-woocommerce-notices-wrapper {
+    padding-left:0px!important;
+}
+#notice *:before {
+    filter: grayscale(1);
+    left: 8px;
+    top: 8px;
+}
+#notice [class*="woocommerce"] {
+    padding-left:32px;
+    border-top:none;
+    border-radius:6px;
+    color: var(--e-global-color-text);
+    font-family: var(--e-global-typography-57705fe-font-family), Sans-serif;
+    font-size: var(--e-global-typography-57705fe-font-size);
+    font-weight: var(--e-global-typography-57705fe-font-weight);
+    line-height: var(--e-global-typography-57705fe-line-height);
+	display: flex;
+    flex-direction: column-reverse;
+}
+#notice [class*="woocommerce"] li {
+    display: flex;
+    flex-direction: column-reverse;
+}
+#notice [class*="woocommerce"] a {
+    padding-left:0px;
+    font-family: var(--e-global-typography-accent-font-family), Sans-serif!important;
+    font-size: var(--e-global-typography-accent-font-size)!important;
+    font-weight: var(--e-global-typography-accent-font-weight)!important;
+    line-height: var(--e-global-typography-accent-line-height)!important;
+    display:block;
+	width:100%
+}
+#notice [class*="woocommerce"] a,
+#notice [class*="woocommerce"] a:hover {
+    background-color:transparent;
+	color:var(--purple)!important;
+}
+
+
+/*********/
+/*************************************************************************************************************************************/
+/*********/
+/* TEXT STYLES */
+/* Input radio style */
+input[type="radio"],
+input:not(.CybotCookiebotDialogBodyLevelButton )[type="checkbox"]{
+	filter: hue-rotate(50deg) saturate(0.57) brightness(.92)!important;
+    height: 20px!important;
+    width: 20px!important;
+}
+/* Cookiebot */
+#CybotCookiebotDialogFooter button {
+    border-radius: 42px !important;
+    border: 1.5px solid var(--brownred) !important;
+    background-color: var(--brownred) !important;
+}
+#CybotCookiebotDialog {
+    background-color: var(--offwhite) !important;
+}
+#CybotCookiebotDialog input:checked+.CybotCookiebotDialogBodyLevelButtonSlider {
+    background-color: var(--purple) !important;
+}
+#CybotCookiebotDialog input:checked+.CybotCookiebotDialogBodyLevelButtonSlider {
+    background-color: var(--purple) !important;
+}
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider {
+    background-color:silver!important;
+}
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSliderWrapperDisabled {
+    opacity:.5;
+}
+
+#CybotCookiebotDialog #CybotCookiebotDialogBodyContentText a, 
+#CybotCookiebotDialog #CybotCookiebotDialogBodyLevelButtonIABHeaderViewPartnersLink, 
+#CybotCookiebotDialog #CybotCookiebotDialogDetailBulkConsentList dt a, 
+#CybotCookiebotDialog #CybotCookiebotDialogDetailFooter a, 
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonIABDescription a, 
+#CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieLink, 
+#CybotCookiebotDialogDetailBodyContentTextAbout a,
+/*hover*/
+#CybotCookiebotDialogBodyLevelButtonsSelectPane label:not([for=CybotCookiebotDialogBodyLevelButtonNecessary]) .CybotCookiebotDialogBodyLevelButtonDescription:hover,
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink:hover{
+    color: var(--purple)!important;
+}
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink.CybotCookiebotDialogActive {
+    border-color:var(--purple)!important;
+    color: var(--purple)!important;
+}
+
+
+/* JetFilter Loop no items found */
+.jet-smart-filters-elementor-loop-no-result {
+    text-align: center;
+    /* Global font style from Elementor */
+}
+/* A HOVER STATES */
+/*A text underline */
+a {
+    transition: all 150ms;
+}
+a.yellow.link,
+.yellow.link a {
+    color: var(--yellow) !important;
+}
+a.yellow:hover,
+.yellow a:hover,
+a.current-page-open.yellow,
+.yellow a.current-page-open{
+    color: var(--yellow) !important;
+}
+.underline-nice.yellow a:hover:after,
+a.underline-nice.yellow:hover:after,
+.underline-nice.yellow a.current-page-open:after,
+a.current-page-open.underline-nice.yellow:after {
+    background-color: var(--yellow)!important;
+}
+@media (min-width:1180px) {
+    .underline-nice a,
+    a.underline-nice {
+        position: relative;
+    }
+    .underline-nice a:after,
+    a.underline-nice:after,
+	.underline-nice a.current-page-open:after,
+	a.current-page-open.underline-nice:after{
+        content: "";
+        position: absolute;
+        display: block;
+        height: clamp(1px, 0.12vw, 2px);
+        left: 0;
+        bottom: 0;
+        transition: opacity 50ms ease-in-out, width 350ms ease-in-out;
+    }
+    .underline-nice a:after,
+    a.underline-nice:after {
+        opacity: 0;
+        width: 20%;
+    }
+    .underline-nice a:hover:after,
+    a.underline-nice:hover:after,
+	.underline-nice a.current-page-open:after,
+	a.current-page-open.underline-nice:after {
+        width: 100%;
+        opacity: 1;
+    }
+}
+@media (max-width:1179px) {
+    .underline-nice a:after,
+    a.underline-nice:after,
+	.underline-nice a.current-page-open:after,
+	a.current-page-open.underline-nice:after{
+        text-decoration: underline!important;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1px!important;;
+    }
+}
+/* Default text blocks */
+.content-text p:not(:last-of-type) {
+    margin-bottom:44px;
+}
+.content-text p:has(> strong:only-child) {
+     margin-bottom:12px;
+}
+.content-text ul + h2,
+.content-text ol + h2,
+.content-text ul + h3,
+.content-text ol + h3,
+.content-text ul + h2,
+.content-text ul + p,
+.content-text ol + p {
+    margin-top:44px;
+}
+.content-text ul,
+.content-text ol {
+    margin-bottom: 0;
+    padding:0 0 0 32px;
+}
+.content-text h2,
+.content-text h3 {
+    margin-bottom:0px;
+}
+.content-text h2:has(+ h3) {
+    margin-bottom: 0px;
+}
+.content-text h2:not(:first-of-type) {
+    margin-top:56px;
+}
+.content-text h2 + h3 {
+    margin-top:0px;
+}
+.content-text a:hover {
+	text-decoration:underline;	
+}
+
+/* Override font size in forms for woocommerce */
+.elementor-widget-woocommerce-checkout-page .woocommerce #customer_details .form-row .input-text, .elementor-widget-woocommerce-checkout-page .woocommerce #customer_details .form-row select, .elementor-widget-woocommerce-checkout-page .woocommerce #customer_details .form-row textarea, .elementor-widget-woocommerce-checkout-page .woocommerce .e-coupon-box .form-row .input-text, .elementor-widget-woocommerce-checkout-page .woocommerce .e-coupon-box .form-row select, .elementor-widget-woocommerce-checkout-page .woocommerce .e-coupon-box .form-row textarea, .elementor-widget-woocommerce-checkout-page .woocommerce .e-woocommerce-login-anchor .form-row .input-text, .elementor-widget-woocommerce-checkout-page .woocommerce .e-woocommerce-login-anchor .form-row select, .elementor-widget-woocommerce-checkout-page .woocommerce .e-woocommerce-login-anchor .form-row textarea {
+    font-size: var(--e-global-typography-text-font-size)!important;
+    font-weight: var(--e-global-typography-text-font-weight)!important;
+}

@@ -1,0 +1,65 @@
+/* CSS for everybody in WP Admin */
+		
+/* Fallback Admin Menu Brro separator titles */
+#toplevel_page_brro-separator-core .wp-menu-name:after {content:"Settings";}
+#toplevel_page_brro-separator-functionality .wp-menu-name:after {content:"Functions";}
+#toplevel_page_brro-separator-content .wp-menu-name:after {content:" Content";}
+#excerpt {
+	height:8em!important;
+}
+/* Uitleg bij posts-table overzicht */
+.tablenav.top:before,
+/* Uitleg bij featured image */
+#postimagediv .inside:after,
+/* Uitleg bij samenvatting */
+textarea#excerpt + p:before,
+/* Uitleg bij content editor */
+#wp-content-editor-tools:before,
+/* Uitleg bij titel edit */
+#titlewrap:after,
+/* ACF info blok */
+.acf-field-message {
+	display: block;
+	margin: 12px 12px 24px 12px!important;
+    font-size: 13px;
+	font-weight: 500;
+	padding: 12px 26px!important;
+	background-color: rgba(0, 125, 62, .07);
+	border-radius: 30px;
+}
+.acf-field-message h2 {padding:0px!important;font-size:16px!important;font-weight:500!important;}
+.acf-image-uploader .image-wrap img {background:none!important;}
+/* Post explanations */
+/* All posts */
+textarea#excerpt + p:before {
+	content:"Wordt gebruikt als samenvatting en meta-beschrijving voor zoekmachines. Max 141 karakters"
+}
+/* Inspiratie / single post */
+.post-type-post #postimagediv .inside:after {
+    content: "Wordt getoond als beeld in de hero naast te titel, en in het berichtenoverzicht.";
+ }
+/* Webshop landing */
+.post-id-22 #postimagediv .inside:after {
+    content: "Wordt getoond als achtergrondafbeelding bij de 'Fysieke winkel' sectie";
+}
+/* Evenementen */
+.post-type-twow_evenement #wp-content-editor-tools:before {
+	content: "Omschrijving en details van het evenement onder de titel + afbeelding sectie."
+}
+/* Reviews */
+.post-type-twow_review #titlewrap:after {
+	content: "De titel bestaat uit 'Naam, Locatie' van de review-schrijver.";
+}
+.post-type-twow_review textarea#excerpt + p:before {
+    content: "Dit is de inhoud van de review, welke volledig getoond wordt in de slider op de winkel- en de webshoplandingspagina.";
+}
+.post-type-twow_review .tablenav.top:before {
+	content: "Hier kun je handmatig reviews invullen van Klantenvertellen.nl, deze worden weergegeven in een slider op de winkel- en de webshoplandingspagina. Om een review niet te tonen, kun je het óf verwijderen óf de status als 'concept' opslaan.";
+}
+/* BESTELLINGEN MY PARCEL KNOP */
+.column-wc_actions img.wcmp__action__img.wcmp__m--auto {
+	width:24px!important;
+}
+.column-wc_actions a.button.wc-action-button {
+	display:none!important;
+}

@@ -1,0 +1,42 @@
+/* CSS for TWOW editors in WP Admin */
+
+/* Admin Menu Brro separator titles */
+#toplevel_page_brro-separator-core .wp-menu-name:after {content:"Site instellingen"!important;}
+#toplevel_page_brro-separator-functionality .wp-menu-name:after {content:"Webshop & Instellingen"!important;}
+#toplevel_page_brro-separator-content .wp-menu-name:after {content:"Inhoud"!important;}
+/* Display:none > 
+/* WooCommerce admin pages */
+li#toplevel_page_woocommerce ul li:nth-child(2), li#toplevel_page_woocommerce ul li:nth-child(3), 
+.woocommerce_page_wc-orders .page-title-action,
+/* pages */
+tr.status-private {
+    display:none;
+}
+/* Disable drag postboxes & Meta links */
+#screen-meta-links,
+.handle-actions {
+    /**/display:none;/**/
+}
+.js .postbox .hndle, .js .widget .widget-top {
+    /**/cursor: default!important;
+    pointer-events: none!important;/**/
+}
+/* Custom dashboard */
+.index-php #dashboard-widgets-wrap:before {
+    content:url(https://www.theworldofwalking.nl/wp-content/uploads/2024/03/twow_logo_bd.svg);
+    margin-left:calc(50% - 327px);
+    filter:invert(.7);
+}
+/* PA Merk */
+.taxonomy-pa_merk a.delete {
+	display:none!important;
+}
+/* Yoast premium badges */
+[class*="yoast"][class*="product"],
+[class*="yoast"][class*="upsell"],
+[class*="yoast"][class*="premium"],
+[class*="yst"][class*="product"],
+[class*="yst"][class*="upsell"],
+[class*="yst"][class*="premium"]{
+	display: none !important;
+}
