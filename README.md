@@ -1,5 +1,5 @@
 # Brro custom style, script and functions for projects
-## /brro-production 
+## /brro-project
 
 # 1. File index
 1. `brro-project.php`
