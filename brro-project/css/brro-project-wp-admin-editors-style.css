@@ -1,13 +1,11 @@
-/* CSS for TWOW editors in WP Admin */
+/* CSS for Client editors in WP Admin */
 
 /* Admin Menu Brro separator titles */
 #toplevel_page_brro-separator-core .wp-menu-name:after {content:"Site instellingen"!important;}
 #toplevel_page_brro-separator-functionality .wp-menu-name:after {content:"Webshop & Instellingen"!important;}
 #toplevel_page_brro-separator-content .wp-menu-name:after {content:"Inhoud"!important;}
-/* Display:none > 
-/* WooCommerce admin pages */
-li#toplevel_page_woocommerce ul li:nth-child(2), li#toplevel_page_woocommerce ul li:nth-child(3), 
-.woocommerce_page_wc-orders .page-title-action,
+/* Display:none > */
+li#specific-admin-menu,
 /* pages */
 tr.status-private {
     display:none;
@@ -23,13 +21,9 @@ tr.status-private {
 }
 /* Custom dashboard */
 .index-php #dashboard-widgets-wrap:before {
-    content:url(https://www.theworldofwalking.nl/wp-content/uploads/2024/03/twow_logo_bd.svg);
-    margin-left:calc(50% - 327px);
-    filter:invert(.7);
-}
-/* PA Merk */
-.taxonomy-pa_merk a.delete {
-	display:none!important;
+    content:url(https://www.brro-client-website.nl/wp-content/uploads/logo.svg);
+    margin-left:calc(50% - 327px); /* 50% - half the width */
+    filter:invert(.7); /* if needed */
 }
 /* Yoast premium badges */
 [class*="yoast"][class*="product"],

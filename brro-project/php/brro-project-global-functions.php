@@ -7,10 +7,10 @@
 // 1. brro_translate_strings
 //		- Translates with the 'gettext' filter specific strings to replace predefined English strings with Dutch translations.
 // 2. brro_additional_wp_css_body_class
-//    	- Adds the 'empty-cart' class if the WooCommerce cart is empty.
+//    	- Add additional body classes if needed
 //
 // Translate string
-add_filter( 'gettext', 'brro_translate_strings', 20, 3 );
+//add_filter( 'gettext', 'brro_translate_strings', 20, 3 );*****************************disabled
 function brro_translate_strings( $translated_text, $text, $domain ) {
 	// Regardless of plugins
 	$translated_text = str_ireplace( 'This field is required.',  'Niet of verkeerd ingevuld.',  $translated_text );
@@ -23,11 +23,11 @@ function brro_translate_strings( $translated_text, $text, $domain ) {
 }
 //
 // Additional body classes
-//add_filter( 'body_class', 'brro_additional_wp_css_body_class' );
+//add_filter( 'body_class', 'brro_additional_wp_css_body_class' );*****************************disabled
 function brro_additional_wp_css_body_class( $classes ){
 	// 'guest', 'webeditor', 'webadmin', 'parent', 'child', 'featuredimg-set' already added
-	if () {
-        $classes[] = 'some-class';  
+	if ( is_page() ) {
+    	$classes[] = 'some-class';  
 	}
 	return $classes;
 }

@@ -1,6 +1,6 @@
 jQuery(function($) {
     // WP Admin functions
-    return;
+    //
     // Limit excerpt to 141 characters
     var maxLength = 141;
     var excerptText = $('#excerpt');

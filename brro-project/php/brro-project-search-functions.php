@@ -3,11 +3,11 @@
 // ******************************************************************************************************************************************************************** Search
 // Index of Functions
 //
-// 1. twow_modify_search_query DISABLED
+// 1. brro_modify_search_query
 //      - Modifies the main search query to include only post titles and excerpts.
 //
 // Search TITLE AND SUMMARY
-//add_filter('posts_search', 'brro_modify_search_query', 10, 2);
+//add_filter('posts_search', 'brro_modify_search_query', 10, 2);*****************************disabled
 function brro_modify_search_query($search, $wp_query) {
     global $wpdb;
     // Only modify the main search query
