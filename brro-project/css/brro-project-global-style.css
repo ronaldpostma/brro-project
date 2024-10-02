@@ -83,6 +83,44 @@ html {
     scrollbar-width: thin!important; /* 'auto' or 'thin' */
     scrollbar-color: green blue; /* thumb and track color */
 }
+
+/* Hide elements bases on class or screensize */
+.only {
+	display:none;
+}
+.only.single-post {
+	display: initial;
+}
+@media (min-width:1180px) {
+    .only.desk {
+        display:initial;
+    }
+    .only.mob:not(.desk),
+    .only.tab:not(.desk) {
+        display:none;
+    }
+}
+@media (min-width:768px) and (max-width:1179px) {
+    .only.tab {
+        display:initial;
+    }
+    .only.mob:not(.tab),
+    .only.desk:not(.tab) {
+        display:none;
+    }
+}
+@media (max-width:767px) {
+    .only.mob {
+        display:initial;
+    }
+    .only.desk:not(.mob),
+    .only.tab:not(.mob) {
+        display:none;
+    }
+}
+
+
+
 /*********/
 /*************************************************************************************************************************************/
 /*********/
@@ -179,3 +217,16 @@ header.brro-sticky-effects {
 /*************************************************************************************************************************************/
 /*********/
 /* TEXT STYLES */
+
+/* Offscreen post title */
+.offscreen {
+	position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
