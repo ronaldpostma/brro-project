@@ -6,7 +6,8 @@ jQuery(function($) {
     var header = $('header.brro-sticky');
 	// GLOBAL HELPER FUNCTIONS
 	//
-	// CHECK IF *ELEMENT IS IN VIEWPORT
+	//
+	// CHECK IF *ELEMENT IS IN VIEWPORT - REMOVE IF NOT USED
 	$.fn.brroViewport = function(viewportTop, viewportBottom) {
 		//var elementTop = $(this).offset().top;
 		var element = $(this);
@@ -20,7 +21,23 @@ jQuery(function($) {
     	var bottom = top + screen.height();
     	return { top, bottom };
 	}
-	// THROTTLE TO LIMIT CALLS ON SCROLL
+	// Example usage to check if item is viewport.
+	function brro_check_if_in_viewport() {
+		var viewport = brro_calc_viewport();
+		var exampleDiv = $('#thisdiv');
+		if (exampleDiv.length && thisDiv.brroViewport(viewport.top, viewport.bottom)) {
+			console.log('#thisdiv is in the viewport');
+		} else {
+			console.log('#thisdiv is not in the viewport');
+		}
+	}
+	// Also add to scroll function brro_run_on_scroll()
+	brro_check_if_in_viewport()
+	//
+	//
+	//
+	//
+	// THROTTLE TO LIMIT CALLS ON SCROLL, USED IN SCROLL FUNCTIONS - DON'T REMOVE
 	window.brro_throttle_scroll = function(func, limit) {
     	let inThrottle;
     	return function() {
@@ -33,6 +50,11 @@ jQuery(function($) {
         	}
     	}
 	};
+	//
+	//
+	//
+	//
+	//
 	// ON PAGE LOAD: HEADER MANIPULATIONS
 	// ADD STICKY MADE UP EFFECTS CLASS
 	function brro_sticky_header_effects() {
@@ -59,39 +81,10 @@ jQuery(function($) {
 			: header.removeClass('brro-headerup')
         screenPosition = screen.scrollTop();
     }
-
-	// Click function
-	$(document).on('click', '#some-trigger', function() {
-		// do something
-	});
-	// Scroll back to top
-	$(document).on('click', 'a#to-top', function() {
-		let attempts = 0;
-		const interval = setInterval(function() {
-			if (header.hasClass('brro-sticky-effects') || attempts >= 8) {
-				header.removeClass('brro-sticky-effects');
-				clearInterval(interval);
-			}
-			attempts++;
-		}, 200);
-	});
-	function brro_back_to_top() {
-        var totalHeight = $(document).height();
-        // Check both conditions: total page height and scrolled amount
-        if (totalHeight > 1800 && screenPosition > 1200) {
-            $('#to-top').removeClass('not-to-top');
-        } else {
-            $('#to-top').addClass('not-to-top');
-        }
-    }
-	brro_back_to_top();
-	// GROUP ALL RESIZE AND SCROLL FUNCTIONS
-	function brro_run_on_scroll() {
-		brro_stickyheader();
-		brro_back_to_top();
-	}
-	// LISTEN AND EXECUTE RESIZE AND SCROLL FUNCTIONS
-	screen.on('scroll', window.brro_throttle_scroll(brro_run_on_scroll, 25));
+	//
+	//
+	//
+	//
 	//
 	// Active page a class
 	if (body.hasClass('single-post')) {
@@ -110,4 +103,76 @@ jQuery(function($) {
             }
         }
     });
+	//
+	//
+	//
+	//
+	//
+	//
+	// Scroll back to top
+	function brro_add_back_to_top() {
+        // Add a back to top button to the page 'a#to-top'
+    	if (footer.length) {
+        	footer.append('<a id="to-top" href="#page-top" class="not-to-top" aria-label="Terug naar boven" role="button"><img src="https://brro.nl/wp-content/uploads/2024/11/brro-arrow-up.svg" alt="Terug naar boven"></a>');
+		} else {
+        	body.append('<a id="to-top" href="#page-top" class="not-to-top" aria-label="Terug naar boven" role="button"><img src="https://brro.nl/wp-content/uploads/2024/11/brro-arrow-up.svg" alt="Terug naar boven"></a>');
+		}
+		if ($('.elementor-location-header').length) {
+			$('.elementor-location-header').prepend('<div id="page-top"></div>');
+    	} else {
+			body.prepend('<div id="page-top"></div>');
+    	}
+	}
+	brro_add_back_to_top();
+	//
+	$(document).on('click', 'a#to-top', function() {
+		let attempts = 0;
+		const interval = setInterval(function() {
+			if (header.hasClass('brro-sticky-effects') || attempts >= 8) {
+				header.removeClass('brro-sticky-effects');
+				clearInterval(interval);
+			}
+			attempts++;
+		}, 200);
+	});
+	//
+	function brro_back_to_top() {
+        var totalHeight = $(document).height();
+        // Check both conditions: total page height and scrolled amount
+        if (totalHeight > 1800 && screenPosition > 1200) {
+            $('#to-top').removeClass('not-to-top');
+        } else {
+            $('#to-top').addClass('not-to-top');
+        }
+    }
+	brro_back_to_top();
+	//
+	//
+	//
+	//
+	// Close popup elementor on click
+	$(document).on('click','.close-popup',function(event) {
+		elementorProFrontend.modules.popup.closePopup({},event);
+	});
+	//
+	//
+	//
+	//
+	//
+	//
+	// GROUP ALL RESIZE AND SCROLL FUNCTIONS
+	function brro_run_on_scroll() {
+		brro_stickyheader();
+		brro_back_to_top();
+	}
+	// LISTEN AND EXECUTE RESIZE AND SCROLL FUNCTIONS
+	screen.on('scroll', window.brro_throttle_scroll(brro_run_on_scroll, 25));
+	//
+	//
+	//
+	//
+	// Click function exmaple
+	//$(document).on('click', '#some-trigger', function() {
+		// do something
+	//});
 });

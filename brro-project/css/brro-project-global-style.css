@@ -3,7 +3,7 @@
 /*********/
 /* ROOT */
 :root,
-.elementor-kit-12 {
+.elementor-kit-XX {
     --primary: var(--e-global-color-primary);
     --secondary: var(--e-global-color-secondary);
     --text: var(--e-global-color-text);
@@ -51,7 +51,7 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
     filter: grayscale(100%) invert(1) brightness(200%);
 }
-#REMOVE-IF-USED body::before {
+#REMOVE-IF-NOT-USED body::before {
   	content:"";position:fixed;top:0;left:0;width:100%;height:100%;z-index: -1;
   	background: url('/wp-content/uploads/background-image.png') repeat-y center center;
   	background-size: 100% auto;
@@ -155,13 +155,18 @@ html {
 /*********/
 /* HEADER */
 /* Headerup */
-header {
+header.brro-sticky,
+header.brro-sticky .elementor-widget {
     -webkit-transition: transform 400ms var(--cubix)!important;
     transition: transform 400ms var(--cubix)!important;
 }
+/* 
+*
+* If entire sticky header goes up and down
+*
+*
 header.brro-headerup {
     transform: translateY(-200px);
-    /*adjust this value to the height of your header*/
 }
 header.brro-sticky-effects {
 	background:red!important;
@@ -169,6 +174,24 @@ header.brro-sticky-effects {
     transition: transform 400ms var(--cubix), box-shadow 400ms var(--cubix), background 400ms ease 100ms!important;
 	box-shadow: 0px 0px 60px #000000AF;
 }
+*
+*
+* If only certain widgets go up and down in the sticky header 
+*
+*
+header.brro-sticky,
+header.brro-sticky.brro-headerup .brro-sticky-up {
+	transform: translateY(-300px);
+}
+header.brro-sticky .elementor-widget {
+	transform: translateY(300px);
+}
+*/
+/* Mobile nav popper */
+header .elementor-shortcode {
+    line-height: 0;
+}
+
 /*
  * 
  * Media Queries */
@@ -199,6 +222,41 @@ header.brro-sticky-effects {
 #to-top {
     transition: opacity 600ms ease;
 }
+#to-top.not-to-top {
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+}
+#to-top:hover {
+	transform:translateY(-12px);
+}
+#to-top {
+    transition: all 600ms ease;
+	position:fixed;
+	right:12px;
+	bottom:12px;
+	z-index:9999;
+}
+@media (min-width:1180px) {
+	#to-top {
+		width:clamp(72px, 6.11vw, 117px) /*88px @ 1440*/;
+		height:clamp(144px, 12.22vw, 235px) /*176px @ 1440*/;
+	}
+}
+@media (max-width:1179px) {
+	#to-top {
+		width:clamp(54px, calc(8.76vw - 31.27px), 72px) /*72px @ 1179*/;
+		height:clamp(108px, calc(17.52vw - 62.54px), 144px) /*144px @ 1179*/;
+	}
+}
+
+#page-top {
+	width:100%;
+	position:absolute;
+	height:1px;
+	margin-bottom:-1px;
+	top:-1px;
+}
 
 
 /*********/
@@ -217,6 +275,13 @@ header.brro-sticky-effects {
 /*************************************************************************************************************************************/
 /*********/
 /* TEXT STYLES */
+/* Active navigation links
+
+a.current-page-open {
+    
+}
+*/
+
 
 /* Offscreen post title */
 .offscreen {
@@ -229,4 +294,5 @@ header.brro-sticky-effects {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+    z-index:-1;
 }
