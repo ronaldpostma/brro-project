@@ -156,9 +156,12 @@ html {
 /* HEADER */
 /* Headerup */
 header.brro-sticky,
-header.brro-sticky .elementor-widget {
+header.brro-sticky .sticky-show {
     -webkit-transition: transform 400ms var(--cubix)!important;
     transition: transform 400ms var(--cubix)!important;
+}
+header.brro-sticky {
+	position:fixed;
 }
 /* 
 *
@@ -179,11 +182,10 @@ header.brro-sticky-effects {
 * If only certain widgets go up and down in the sticky header 
 *
 *
-header.brro-sticky,
-header.brro-sticky.brro-headerup .brro-sticky-up {
+header.brro-sticky-effects {
 	transform: translateY(-300px);
 }
-header.brro-sticky .elementor-widget {
+header.brro-sticky:not(.brro-headerup) .sticky-show {
 	transform: translateY(300px);
 }
 */
