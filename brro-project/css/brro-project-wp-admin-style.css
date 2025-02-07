@@ -13,7 +13,7 @@
 /* Uitleg bij featured image */
 #postimagediv .inside:after,
 /* Uitleg bij samenvatting */
-textarea#excerpt + p:before,
+textarea#excerpt + p,
 /* Uitleg bij native wordpress content editor */
 #wp-content-editor-tools:before,
 /* Uitleg bij titel edit */
