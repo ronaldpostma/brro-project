@@ -35,10 +35,6 @@ textarea#excerpt + p,
 .acf-field-message h2 {padding:0px!important;font-size:16px!important;font-weight:500!important;}
 .acf-image-uploader .image-wrap img {background:none!important;}
 /* Post explanations */
-/* All posts */
-textarea#excerpt + p:before {
-	content:"Wordt gebruikt als samenvatting en meta-beschrijving voor zoekmachines. Max 141 karakters"
-}
 /* Blog / single post */
 .post-type-post #postimagediv .inside:after {
     content: "Wordt getoond als beeld in de hero naast te titel, en in het berichtenoverzicht.";
