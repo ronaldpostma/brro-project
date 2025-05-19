@@ -42,7 +42,6 @@ function brro_enqueue_admin_assets() {
     if (is_admin()) {
         // For all users
         wp_enqueue_style( 'brro-project-wp-admin-style', plugins_url( '/css/brro-project-wp-admin-style.css', __FILE__ ), [], '1.0.0', 'all' );
-        wp_enqueue_script( 'brro-project-wp-admin-script', plugins_url( '/js/brro-project-wp-admin-script.js', __FILE__ ), ['jquery'], '1.0.0', true );
         // 
         // For specific users
         $user = get_current_user_id();
