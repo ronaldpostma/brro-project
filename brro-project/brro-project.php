@@ -16,6 +16,7 @@ require_once plugin_dir_path(__FILE__) . '/php/brro-project-global-functions.php
 // 
 if (is_admin()) {
     require_once plugin_dir_path(__FILE__) . '/php/brro-project-admin-functions.php';
+    require_once plugin_dir_path(__FILE__) . '/php/brro-project-admin-instructions.php';
 }
 //
 // Load CSS and JS
