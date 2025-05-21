@@ -6,3 +6,27 @@
 #toplevel_page_brro-separator-content .wp-menu-name:after {content:" Content";}
 		
 .acf-image-uploader .image-wrap img {background:none!important;}
+
+
+
+/* Profile / edit user */
+#your-profile h2 {
+    margin-top:112px;
+}
+.user-admin-color-wrap,
+.user-comment-shortcuts-wrap,
+#profile-table-sites tr:not(.user-email-wrap),
+.profile-table-bio,
+#application-passwords-section,
+#your-profile .yoast {
+    display: none!important;
+}
+tr[data-name="gebruiker_opmerking_aanvragen_account"] {
+    pointer-events: none!important;
+    cursor: default!important;
+}
+tr[data-name="gebruiker_opmerking_aanvragen_account"] textarea {
+    background: transparent;
+    border: none;
+    resize: none;
+}
