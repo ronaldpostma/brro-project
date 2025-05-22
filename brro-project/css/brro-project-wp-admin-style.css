@@ -30,3 +30,70 @@ tr[data-name="gebruiker_opmerking_aanvragen_account"] textarea {
     border: none;
     resize: none;
 }
+
+
+
+/* Brro help window */
+#brro-help-window {
+    position: fixed;
+    bottom: -20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 160px;
+    height: 50px;
+    background-color: #002C24;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: all 400ms ease;
+    overflow: hidden;
+}
+#brro-help-window:not(.open) .content {
+    display:none;
+}
+#brro-help-window .content {
+    font-family: acumin-pro, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 16px;
+    color: black;
+    padding: 12px 22px;
+    background-color:#F6F7F7;
+    border-radius:8px 8px 18px 18px;
+    width: calc( 100% - 8px);
+    height: auto;
+    min-height: 244px;
+    box-sizing: border-box;
+    margin:0px 4px 4px 4px;
+}
+#brro-help-window.open {
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+    box-shadow: 0 0 20px 6px rgba(0, 0, 0, 0.5);
+    width: max(60%,700px);
+    height: auto;
+    min-height: 280px;
+}
+#brro-help-window.open #brro-help-topbar {
+    justify-content: space-between;
+}
+#brro-help-topbar {
+    background-color: #002C24;
+    height: 32px;
+    padding: 0px 22px;
+    font-size: 18px;
+    font-family: tenso, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#brro-help-topbar .close:hover {
+    color: #FF31B0;
+    cursor: pointer;
+}
+#brro-help-window:not(.open):hover {
+    cursor:pointer;
+}
