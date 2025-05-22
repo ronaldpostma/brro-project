@@ -12,37 +12,40 @@ function brro_admin_instructions_scripts_styles() {
     ?>
     <script type='text/javascript'>
     jQuery(function($) {
+        //
+        //
+        //
+        // FROM NATUURTALENT HAARLEM AS A BACKUP
+        //
+        //
+        //
         // Admin page type
         var body = $('body');
         var isSingle = body.hasClass('[class*="post-type-"]') && body.hasClass('post-new-php') || body.hasClass('post-php');
         var isRedirection = body.hasClass('tools_page_redirection');
         var isProfile = body.hasClass('user-edit-php') || body.hasClass('profile-php');
-        if (isSingle || isRedirection) {
-            var osWindow = $('<div>', {
-                css: {
-                    'position': 'fixed',
-                    'top': '20%',
-                    'left': '20%',
-                    'width': '60%',
-                    'height': '60%',
-                    'background-color': '#fff',
-                    'border': '1px solid #ccc',
-                    'box-shadow': '0 0 10px rgba(0,0,0,0.5)',
-                    'z-index': '1000'
+        if (isRedirection) {
+            $('head').append('<link rel="stylesheet" href="https://use.typekit.net/vzo7tht.css">');
+            body.append(
+                $('<div id="brro-help-window">').append(
+                    $('<div id="brro-help-topbar">').append(
+                        $('<span>Documentatie</span>')
+                    )
+                ).append('<div class="content">')
+            );
+            $('#brro-help-window .content').html('<p>Check <a href="https://brro.nl/support" target="_blank">brro.nl/support</a> voor algemene documentatie over het gebruik van onze Wordpress websites.</p>');
+            $('#brro-help-window').on('click', function() {
+                if (!$(this).hasClass('open')) {
+                    $(this).addClass('open');
+                    $('#brro-help-topbar').append('<span class="close">sluiten</span>');
                 }
             });
-
-            var topBar = $('<div>', {
-                css: {
-                    'background-color': '#f1f1f1',
-                    'padding': '10px',
-                    'cursor': 'move',
-                    'border-bottom': '1px solid #ccc'
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('#brro-help-window.open').length || $(event.target).is('#brro-help-topbar .close')) {
+                    $('#brro-help-window').removeClass('open');
+                    $('#brro-help-topbar .close').remove();
                 }
-            }).text('OS Window');
-
-            osWindow.append(topBar);
-            body.append(osWindow);
+            });
         }
         //
         // Limit excerpt to 141 characters
@@ -63,9 +66,15 @@ function brro_admin_instructions_scripts_styles() {
             });
         }
         //
+        //
+        var video = $('<iframe width="640" height="360" style="margin:8px 0;border:0;" scrolling="no" src="https://go.screenpal.com/player/VIDEOID?width=640&height=360&ff=1&title=0" allowfullscreen="true"></iframe>');
+        //
         // Insert video in redirection screen
         if (isRedirection) {
-
+            $('#brro-help-window .content').prepend('<div class="video">Bekijk hier een korte video over hoe redirects werken:</div>');
+            $('#brro-help-window .content .video').append(video);
+            var videoId = 'cTho6GnQSaX';
+            video.attr('src', video.attr('src').replace('VIDEOID', videoId));
         }
         //
         // Modify the wp-admin profile page
