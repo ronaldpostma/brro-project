@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Brro -PROJECT NAME- Custom Code
  * Description: Custom style, script and functions for - PROJECT NAME -
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Ronald Postma 
  * Author URI: https://brro.nl/
  * 

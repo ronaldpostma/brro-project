@@ -37,11 +37,8 @@ body,
 html {
     overflow-x: hidden !important;
 }
-body {position:relative;}
-*:focus,
-*:focus-visible,
-* {
-    outline: none !important;
+body {
+    position:relative;
 }
 
 /* clears the ‘X’ from search input Chrome */
