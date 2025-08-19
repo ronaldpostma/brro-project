@@ -7,6 +7,7 @@
  * Author URI: https://brro.nl/
  * 
  */
+if (!defined('ABSPATH')) exit;
 //
 // Include Admin functions
 // 
