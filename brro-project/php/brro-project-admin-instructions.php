@@ -4,8 +4,6 @@
 //
 // Index of Functions
 //
-// Later
-//
 add_action( 'admin_footer', 'brro_admin_instructions_scripts_styles' );
 function brro_admin_instructions_scripts_styles() {
     //

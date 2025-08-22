@@ -12,7 +12,6 @@ if (!defined('ABSPATH')) exit;
 // Include Admin functions
 // 
 if (is_admin()) {
-    require_once plugin_dir_path(__FILE__) . '/php/brro-project-admin-functions.php';
     require_once plugin_dir_path(__FILE__) . '/php/brro-project-admin-instructions.php';
 }
 add_action( 'admin_enqueue_scripts', 'brro_enqueue_admin_assets');
