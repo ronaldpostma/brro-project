@@ -1,6 +1,0 @@
-/* CSS for (specific) admin users only in WP Admin */
-
-/* Admin Menu Brro separator titles */
-#toplevel_page_brro-separator-core .wp-menu-name:after {content:"Site Kern"!important;}
-#toplevel_page_brro-separator-functionality .wp-menu-name:after {content:"Functionaliteit"!important;}
-#toplevel_page_brro-separator-content .wp-menu-name:after {content:"Inhoud"!important;}
