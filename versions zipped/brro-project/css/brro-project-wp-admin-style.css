@@ -1,0 +1,81 @@
+/* ========================================
+   WP ADMIN GLOBAL STYLES
+   * Applies to all users in wp-admin
+   ======================================== */
+        
+/* ============= fallback admin menu separator titles =================== */
+#toplevel_page_brro-separator-core .wp-menu-name:after {content:"Settings";}
+#toplevel_page_brro-separator-functionality .wp-menu-name:after {content:"Functions";}
+#toplevel_page_brro-separator-content .wp-menu-name:after {content:" Content";}
+
+
+
+/* ============= excerpts box =================== */
+#excerpt {
+	height:8em!important;
+}
+/* ============= informative helpers and ACF messages =================== */
+.tablenav.top:before,
+#postimagediv .inside:after,
+textarea#excerpt + p:not(.cust-excerpt):before,
+textarea#excerpt + p.cust-excerpt,
+#wp-content-editor-tools:before,
+#titlewrap:after,
+.acf-field-message {
+	display: block;
+	margin: 12px 12px 24px 12px!important;
+    font-size: 13px;
+	font-weight: 500;
+	padding: 12px 26px!important;
+	background-color: rgba(0, 125, 62, .07);
+	border-radius: 30px;
+}
+.acf-field-message h2 {padding:0px!important;font-size:16px!important;font-weight:500!important;}
+.acf-image-uploader .image-wrap img {background:none!important;}
+
+/* ============= ACF repeater =================== */
+.acf-repeater .acf-row-number {
+    font-size: 18px;
+    font-weight: 700;
+    color: black !important;
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: lightpink;
+    border-radius: 40px;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    text-shadow: none;
+}
+.acf-row:nth-child(odd) > td {
+	background: rgba(56, 61, 40, 0.01);
+}
+
+/* ============= post explanations =================== */
+/* All posts */
+textarea#excerpt + p:not(.cust-excerpt):before {
+	content:"Wordt gebruikt als samenvatting en meta-beschrijving voor zoekmachines. Max 141 karakters"
+}
+/* Blog / single post */
+.post-type-post #postimagediv .inside:after {
+    content: "Wordt getoond als beeld in de hero naast de titel, en in het berichtenoverzicht.";
+ }
+ /* Page */
+ .post-type-page #postimagediv .inside:after,
+ .post-type-natuurcamping #postimagediv .inside:after,
+ .post-type-brasserie #postimagediv .inside:after,
+ .post-type-tiny-houses #postimagediv .inside:after,
+ .post-type-activiteiten #postimagediv .inside:after {
+    content: "Wordt getoond als beeld voor SEO, en als beeld wanneer je de link van deze pagina deelt.";
+ }
+/* Specific page */
+.post-id-124 #postimagediv .inside:after {
+    content: "Wordt getoond als beeld onder de header met de slogan ervoor - en voor SEO, en als beeld wanneer je de link van deze pagina deelt.";
+}
+/* Custom post */
+.post-type-custom-post #wp-content-editor-tools:before {
+	content: "Omschrijving en details van het evenement onder de titel + afbeelding sectie."
+}
+

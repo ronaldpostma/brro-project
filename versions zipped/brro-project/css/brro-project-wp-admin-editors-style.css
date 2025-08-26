@@ -1,0 +1,42 @@
+/* ========================================
+   WP ADMIN EDITORS STYLES
+   * Client editors-specific adjustments
+   ======================================== */
+
+/* ============= admin menu separator titles =================== */
+#toplevel_page_brro-separator-core .wp-menu-name:after {content:"Site instellingen"!important;}
+#toplevel_page_brro-separator-functionality .wp-menu-name:after {content:"Webshop & Instellingen"!important;}
+#toplevel_page_brro-separator-content .wp-menu-name:after {content:"Inhoud"!important;}
+/* ============= visibility restrictions: pages =================== */
+.edit-php tr#post-54,
+tr.status-private {
+    display:none;
+}
+/* ============= disable drag postboxes and meta links =================== */
+#screen-meta-links,
+.handle-actions {
+    /**/display:none;/**/
+}
+.js .postbox .hndle, .js .widget .widget-top {
+    /**/cursor: default!important;
+    pointer-events: none!important;/**/
+}
+/* ============= custom dashboard =================== */
+.index-php #dashboard-widgets-wrap:before {
+    content:url(https://brro.nl/wp-content/uploads/logo.svg);
+    margin-left:calc(50% - 169px); /* 50% - half the width */
+}
+/* ============= plugin upsell cleanup (Yoast) =================== */
+[class*="yoast"][class*="product"],
+[class*="yoast"][class*="upsell"],
+[class*="yoast"][class*="premium"],
+[class*="yst"][class*="product"],
+[class*="yst"][class*="upsell"],
+[class*="yst"][class*="premium"]{
+	display: none !important;
+}
+/* ============= media library and editor adjustments =================== */
+.upload-php .filter-items #view-switch-grid,
+.post-php #postdivrich {
+    display: none!important;
+}

@@ -1,0 +1,200 @@
+/* ========================================
+   ROOT VARIABLES
+   * Global CSS variables and timing functions
+   ======================================== */
+:root,
+.elementor-kit-6 {
+    --lightyellow: var(--e-global-color-primary);
+    --darkblue: var(--e-global-color-secondary);
+    --text: var(--e-global-color-text);
+    --accent: var(--e-global-color-accent);
+
+	--cubix: cubic-bezier(.8,0,.4,1);
+    --cubixslow: cubic-bezier(.55,0,0,1);
+}
+/* ============= responsive variable ranges =================== */
+@media (max-width:767px) {
+	.e-con,
+    :root {
+		--def:clamp(300px, calc(24.57vw + 231.55px), 420px);/*320px @ 360 : 420px @ 767*/
+		--small:clamp(290px, calc(19.66vw + 209.24px), 360px); /*280px @ 360 : 360px @ 767*/
+		--wide:clamp(300px, calc(63.88vw + 90.02px), 580px); /*320px @ 360 : 580px @ 767*/
+	}
+}
+/* ========================================
+   WP ADMIN BAR
+   * Limit visibility for non-admin users
+   ======================================== */
+/* ============= hide all =================== */
+body:not(.webadmin) #wpadminbar li {
+    display: none !important;
+}
+/* ============= admin top menu =================== */
+body:not(.webadmin) #wpadminbar li#wp-admin-bar-site-name,
+body:not(.webadmin) #wpadminbar li#wp-admin-bar-my-account,
+body:not(.webadmin) #wpadminbar li#wp-admin-bar-logout {
+    display: inherit !important;
+}
+/* ========================================
+   HTML AND BODY BASE
+   * Base layout and form tweaks
+   ======================================== */
+body,
+html {
+    overflow-x: hidden !important;
+}
+body {
+    position:relative;
+}
+/* ============= search input clear button =================== */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    filter: grayscale(100%) invert(1) brightness(200%);
+}
+/* ============= dynamic content utilities =================== */
+[brro_data="no-content"] {
+	display:none!important;
+}
+
+/* ========================================
+   RESPONSIVE DISPLAY UTILITIES
+   * Utility classes for layout at breakpoints
+   ======================================== */
+
+/* Desktop only (1180px and up) */
+@media (min-width: 1180px) {
+    .only.desk {
+        display: revert !important;
+    }
+    .only.mob:not(.desk),
+    .only.tab:not(.desk) {
+        display: none !important;
+    }
+}
+
+/* Tablet only (768px to 1179px) */
+@media (min-width: 768px) and (max-width: 1179px) {
+    .only.tab {
+        display: revert !important;
+    }
+    .only.mob:not(.tab),
+    .only.desk:not(.tab) {
+        display: none !important;
+    }
+}
+
+/* Mobile only (767px and down) */
+@media (max-width: 767px) {
+    .only.mob {
+        display: revert !important;
+    }
+    .only.desk:not(.mob),
+    .only.tab:not(.mob) {
+        display: none !important;
+    }
+}
+
+
+
+/* ========================================
+   ELEMENTOR EDITOR
+   * Visual aids while editing
+   ======================================== */
+/* ============= captcha inline =================== */
+.elementor-field-type-recaptcha_v3.recaptcha_v3-inline {
+    height: 5px;
+    margin-bottom: 0px !important;
+    opacity: 0;
+    visibility: hidden;
+}
+/* ============= show HTML widget scripts =================== */
+.elementor-editor-active .elementor-widget-html:not(.hidejs) script {
+    display: block;
+    max-height: 30px;
+    border: 4px solid red;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 12px;
+}
+/* ============= highlight spacer =================== */
+.elementor-editor-active .elementor-spacer {
+    background: grey;
+    opacity: 0.2;
+}
+/* ============= highlight empty widget =================== */
+.elementor-editor-active .elementor-element.elementor-widget-empty .elementor-widget-empty-icon {
+    border: 4px solid red;
+}
+/* ========================================
+   HEADER
+   * Sticky behaviors and layout
+   ======================================== */
+
+/* ============= sticky header transitions =================== */
+header.brro-sticky,
+header.brro-sticky .sticky-show {
+    -webkit-transition: transform 650ms var(--cubix)!important;
+    transition: transform 650ms var(--cubix)!important;
+}
+header.brro-sticky {
+	position:fixed;
+    z-index: 99;
+}
+/* ============= sticky header slide transforms =================== */
+
+header.brro-sticky-effects,
+body:not(.home) header {
+	transform: translateY(-300px);
+}
+header.brro-sticky-effects .sticky-show,
+body:not(.home) header .sticky-show {
+	transform: translateY(300px);
+}
+
+/* ============= mobile nav popper =================== */
+header .elementor-shortcode {
+    line-height: 0;
+}
+
+
+.elementor-location-header {
+    z-index: 9998;
+    position: relative;
+}
+
+/* ============= media queries =================== */
+
+/* Desktop */
+@media (min-width:1180px) {
+} 
+/* Tablet onwards */
+@media (min-width:768px) {
+} 
+/* Tablet only */
+@media (min-width:768px) and (max-width:1179px) {
+} 
+/* Mobile */
+@media (max-width:767px) {
+}
+
+/* ========================================
+   FOOTER AND ACCESSIBILITY
+   * Offscreen utility
+   ======================================== */
+
+/* ============= offscreen utility =================== */
+.offscreen {
+	position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    z-index:-1;
+}
+ 
