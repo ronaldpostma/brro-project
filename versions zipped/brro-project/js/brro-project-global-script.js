@@ -132,4 +132,8 @@ jQuery(function($) {
 	}
 	brro_insert_edit_link();
 	//
+	// Close popup elementor on click
+	$(document).on('click','.close-popup',function(event) {
+		elementorProFrontend.modules.popup.closePopup({},event);
+	});
 });
