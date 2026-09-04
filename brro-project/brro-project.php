@@ -3,7 +3,7 @@
  * Plugin Name: Brro -PROJECT NAME- Custom Code
  * Description: Custom style, script and functions for - PROJECT NAME -
  * Version: 1.1.4
- * Author: Ronald Postma 
+ * Author: Ronald Postma (Brro) & Cursor AI
  * Author URI: https://brro.nl/
  * 
  */
