@@ -44,4 +44,4 @@ Works alongside the global functions in <a href="https://github.com/ronaldpostma
 1. In `js/brro-project-global-script.js` > create the back to top button itself as well, don't rely on an Elementor widget
 
 # 5. License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under [GPLv2 or later](https://github.com/ronaldpostma/brro-project/blob/main/LICENSE).
